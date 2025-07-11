@@ -2,235 +2,552 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anthony Gabriel | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anthony Gabriel - Portfolio</title>
   <style>
-    :root {
-      --bg-color: #fafafa;
-      --text-color: #333;
-      --card-bg: #fff;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #f0f0f0;
-      --card-bg: #1e1e1e;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
+      font-family: 'Times New Roman', serif;
+      background-color: #0f1d1e;
+      color: black;
     }
 
     header {
-      background-color: #222;
-      color: #fff;
-      padding: 1rem 2rem;
+      background-color: #e3e3e3;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 30px;
+      color: black;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    header h1 {
-      font-size: 1.5rem;
-      margin: 0;
+    header .title {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
     }
 
     nav a {
-      color: #fff;
       text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
+      color: black;
+      font-weight: 500;
     }
 
     .hero {
+      position: relative;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 80px 20px;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') no-repeat center center/cover;
+      height: 100vh;
     }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0;
+    .profile-pic {
+      position: absolute;
+      top: 30%;
+      left: 45%;
+      transform: translate(-50%, -50%) scale(0.9);
+      border-radius: 50%;
+      border: 6px solid white;
+      overflow: hidden;
+      width: 150px;
+      height: 150px;
+      background: white;
+      opacity: 0;
+      animation: profileFadeIn 1.5s ease-out forwards;
+      animation-delay: 0.3s;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: #666;
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .resume-btn {
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #444;
-      color: #fff;
-      border: none;
+    .hero h1 {
+      margin-top: 280px;
+      font-size: 36px;
+      font-family: 'Times New Roman', serif;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 20px;
+      border-radius: 8px;
+      opacity: 0;
+      animation: fadeSlideIn 1.5s ease-out forwards;
+      animation-delay: 0.8s;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 500;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 6px 16px;
       border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
+      opacity: 0;
+      animation: subtitleFade 1.5s ease-out forwards;
+      animation-delay: 1.4s;
     }
 
-    .portfolio {
-      padding: 4rem 2rem;
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .portfolio h3 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
+    @keyframes profileFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+    @keyframes subtitleFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about {
+      padding: 80px 20px;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .about-container {
       max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+    }
+
+    .about-text h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .about-image {
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #ccc;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .social {
+      background-color: #111;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .social h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: white;
+      border: 2px solid white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .social-icons a:hover {
+      background-color: white;
+      color: #111;
+      transform: translateY(-3px);
+    }
+
+    #work {
+      text-align: center;
+      padding: 60px 20px;
+      background: #111;
+      color: #fff;
+    }
+
+    #work h2 {
+      font-family: serif;
+      font-size: 36px;
+      margin-bottom: 40px;
+	  text-color" blackS
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
-    .project {
-      background: var(--card-bg);
+    .project-item {
+      overflow: hidden;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .project img {
-      max-width: 100%;
-      border-radius: 6px;
-    }
-
-    .project h4 {
-      margin: 1rem 0 0.5rem;
-    }
-
-    .contact {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .contact a {
-      color: var(--text-color);
-    }
-
-    .socials {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .socials a img {
-      width: 30px;
-      height: 30px;
-    }
-
-    .dark-toggle {
-      background: #fff;
-      color: #000;
-      border: none;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
-      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
       cursor: pointer;
     }
 
-    footer {
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+    .project-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
     }
 
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .socials {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+    .project-item:hover img {
+      transform: scale(1.05);
     }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 5px solid white;
+      border-radius: 10px;
+    }
+.project-grid img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-grid img:hover {
+  transform: scale(1.05);
+}
+/* Container Styling */
+#Education {
+  padding: 40px 20px;
+  background-color: #f7f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading Styles */
+#Education h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+#Education h2 {
+  text-align: center;
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  td {
+    text-align: left;
+    padding: 10px;
+    border: none;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+
   </style>
-  
-  
 </head>
 <body>
 
-  <header>
-    <h1>Anthony Gabriel</h1>
-    <div>
-      <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Theme</button>
-      <nav>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<header>
+  <div class="title">GOOD DAY AWESOME!!</div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About me</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#Education">Education</a></li>
+      <li><a href="#social">Social Media</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="profile-pic">
+    <img src="https://i.ibb.co/4nyq5Qvq/5-ID-pic2x2-Anthony.jpg" alt="Anthony Gabriel">
+  </div>
+  <h1>ANTHONY GABRIEL</h1>
+  <p class="subtitle">Graphic & Web Designer</p>
+</section>
+
+<section class="about" id="about">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>Hello! I’m <strong>Anthony Gabriel</strong>, a passionate <strong>Graphic Designer</strong> and <strong>Web Designer</strong> with a creative mindset and a focus on functional design. I help businesses build their online presence with strong visuals, clean code, and strategic branding.</p>
+      <p>With experience in freelancing, digital marketing, and UI/UX design, I make sure every project not only looks good but works smoothly too. Let's build something amazing together!</p>
     </div>
-  </header>
-
-  <section class="hero">
-    <h2>Graphic Designer & Web Developer</h2>
-    <p>Crafting clean visuals and responsive websites that speak to your brand.</p>
-    <a href="resume.pdf" download class="resume-btn">Download Resume</a>
-  </section>
-
-  <section id="portfolio" class="portfolio">
-    <h3>My Work</h3>
-    <div class="projects">
-      <div class="project">
-        <img src="https://via.placeholder.com/300x180" alt="Project 1">
-        <h4>Project One</h4>
-        <p>Logo and brand identity for a startup.</p>
-      </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/300x180" alt="Project 2">
-        <h4>Project Two</h4>
-        <p>Responsive website for a photography portfolio.</p>
-      </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/300x180" alt="Project 3">
-        <h4>Project Three</h4>
-        <p>E-commerce design with user-friendly UX/UI.</p>
-      </div>
+    <div class="about-image">
+      <img src="https://i.ibb.co/4nyq5Qvq/5-ID-pic2x2-Anthony.jpg" alt="Anthony Gabriel">
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="contact">
-    <h3>Contact Me</h3>
-    <p>Email: <a href="mailto:anthony@example.com">anthony@example.com</a></p>
-    <div class="socials">
-      <a href="https://linkedin.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
-      <a href="https://github.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub"></a>
-      <a href="https://behance.net" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145799.png" alt="Behance"></a>
+<div class="project-grid">
+  <!-- Insert the 3 anchors with <img> here -->
+</div>
+
+<!-- Work Section -->
+<section id="work" style="background-color: #ffffff; padding: 80px 0; color: #fff;">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <h2 style="color:black; font-size: 36px; font-weight: bold;">My Projects</h2>
+  </div>
+
+  <div style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  ">
+    <!-- Project 1 -->
+    <div style="text-align: center;">
+      <img src="https://i.ibb.co/whXBMdsm/1.jpg" alt="Project 1" style="
+        width: 100%;
+        max-width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <p style="color: black; margin-top: 10px;">Project 1</p>
     </div>
+
+    <!-- Project 2 -->
+    <div style="text-align: center;">
+      <img src="https://i.ibb.co/QjfXjhvN/2.jpg" alt="Project 2" style="
+        width: 100%;
+        max-width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <p style="color: black ; margin-top: 10px;">Project 2</p>
+    </div>
+
+    <!-- Project 3 -->
+    <div style="text-align: center;">
+      <img src="https://i.ibb.co/dJmNhHjw/3.jpg" alt="Project 3" style="
+        width: 100%;
+        max-width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <p style="color: black ; margin-top: 10px;">Project 3</p>
+    </div>
+
+    <!-- Project 4 -->
+    <div style="text-align: center;">
+      <img src="https://i.ibb.co/dJmNhHjw/3.jpg" alt="Project 4" style="
+        width: 100%;
+        max-width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <p style="color: black ; margin-top: 10px;">Project 4</p>
+    </div>
+  </div>
+</section>
+
+
+<<section class="Education" id="Education">
+  <h1>EDUCATIONAL BACKGROUND</h1>
+  <h2>Academic History</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name of School</th>
+        <th>Strand / Course</th>
+        <th>Year Graduated</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Name of School">M'lang National High School</td>
+        <td data-label="Strand / Course">STEM (Science, Technology, Engineering, and Mathematics)<p>2 Academic Award</p><p>1st Place in Research Project</p></td>
+        <td data-label="Year Graduated">2017</td>
+        <td data-label="Address">M'lang, North Cotabato</td>
+      </tr>
+      <tr>
+        <td data-label="Name of School">Mindanao Master Technical Training Center</td>
+        <td data-label="Strand / Course">Computer Science Basics</td>
+        <td data-label="Year Graduated">2014</td>
+        <td data-label="Address">Lanao, Kidapawan City</td>
+      </tr>
+      <tr>
+        <td data-label="Name of School">M'lang Pilot Elementary School</td>
+        <td data-label="Strand / Course">Elementary Education</td>
+        <td data-label="Year Graduated">2008</td>
+        <td data-label="Address">M'lang, North Cotabato</td>
+      </tr>
+    </tbody>
+  </table>
   </section>
+<!-- Lightbox for image zoom -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Zoomed Image" id="lightbox-img">
+</div>
 
-  <footer>
-    © 2025 Anthony Gabriel. All rights reserved.
-  </footer>
+<section class="social" id="social">
+  <h2>Get in touch</h2>
+  <p>If you are looking for creative and efficient web design solutions, I am ready to help you turn your digital vision into reality.</p>
+  <p>Please contact me for a unique and customized web design project according to your needs.</p>
+  <br><br><br><br><br>
+  <div class="social-icons">
+    <a href="https://facebook.com/yourusername" target="_blank" class="facebook">Facebook</a>
+    <a href="https://instagram.com/yourusername" target="_blank" class="instagram">Instagram</a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank" class="linkedin">LinkedIn</a>
+    <a href="mailto:youremail@example.com" class="email">Email</a>
+  </div>
+</section>
 
-  <script>
-    function toggleDarkMode() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-    }
-  </script>
+</Section>
+
+<script>
+  const zoomableImages = document.querySelectorAll('.zoomable');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  zoomableImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  });
+</script>
 
 </body>
 </html>
